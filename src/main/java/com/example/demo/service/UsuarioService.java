@@ -13,8 +13,12 @@ import com.example.demo.persistence.IUsuarioRepositorio;
 @Service
 public class UsuarioService {
 	
+	private final IUsuarioRepositorio usuarioRepositorio;
+	
 	@Autowired
-	private IUsuarioRepositorio usuarioRepositorio;
+	private UsuarioService(IUsuarioRepositorio usuarioRepositorio) {
+		this.usuarioRepositorio = usuarioRepositorio;
+	}
 	
 	public Usuario save(Usuario usuario) {
 		return usuarioRepositorio.save(usuario);

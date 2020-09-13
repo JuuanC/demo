@@ -8,8 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 
-@Entity
-@Table(name = "usuario")
+@Entity(name = "usuario")
 @Data
 public class Usuario {
 	@Id
@@ -30,4 +29,14 @@ public class Usuario {
 	
 	@Column
 	private String contrasenia;
+
+	public Usuario(String nombre, String telefono, String correo, String usuario, String contrasenia) {
+		super();
+		this.nombre = nombre;
+		this.telefono = telefono;
+		this.correo = correo;
+		this.usuario = usuario;
+		this.contrasenia = contrasenia;
+	}
+	
 }

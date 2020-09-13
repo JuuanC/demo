@@ -6,12 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
-@Table(name = "coche")
+@Entity(name = "coche")
 @Data
 public class Coche {
 	
@@ -30,5 +28,13 @@ public class Coche {
 	
 	@Column
 	private Long id_usuario;
+
+	public Coche(Long id, String marca, String modelo, String color, Long id_usuario) {
+		super();
+		this.marca = marca;
+		this.modelo = modelo;
+		this.color = color;
+		this.id_usuario = id_usuario;
+	}
 
 }

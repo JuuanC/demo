@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,43 +9,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.modelo.Usuario;
-import com.example.demo.service.UsuarioService;
+import com.example.demo.modelo.Coche;
+import com.example.demo.service.CocheService;
 
 @RestController
-@RequestMapping("/usuario")
-public class UsuarioController implements IController<Usuario> {
+@RequestMapping("/coche")
+public class CocheController implements IController<Coche> {
 	
-	UsuarioService usuarioService;
+	CocheService cocheService;
 	
 	@Autowired
-    UsuarioController(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
+	CocheController(CocheService cocheService) {
+        this.cocheService = cocheService;
     }
 
 	@Override
 	@GetMapping("/getAll")
 	public Object getAll() {
-		return usuarioService.getALL();
+		return cocheService.getALL();
 	}
 
 	@Override
 	@GetMapping("/getById/{id}")
-	public Usuario getById(@PathVariable("id") Long id) {
-		return usuarioService.getById(id);
+	public Coche getById(@PathVariable("id") Long id) {
+		return cocheService.getById(id);
 	}
 
 	@Override
 	@PostMapping("/save")
-	public Usuario save(@RequestBody Usuario usuario) {
-		System.out.println(usuario);
-		return usuarioService.save(usuario);
+	public Coche save(@RequestBody Coche coche) {
+		System.out.println(coche);
+		return cocheService.save(coche);
 	}
 
 	@Override
 	@DeleteMapping("delete")
-	public void delete(@RequestBody Usuario usuario) {
-		usuarioService.delete(usuario);
+	public void delete(@RequestBody Coche coche) {
+		cocheService.delete(coche);
 	}
 
 }
