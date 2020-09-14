@@ -29,12 +29,46 @@ public class Coche {
 	@Column
 	private Long id_usuario;
 
-	public Coche(Long id, String marca, String modelo, String color, Long id_usuario) {
-		super();
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
 		this.marca = marca;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
 		this.modelo = modelo;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public Long getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(Long id_usuario) {
 		this.id_usuario = id_usuario;
 	}
+
+	
 
 }

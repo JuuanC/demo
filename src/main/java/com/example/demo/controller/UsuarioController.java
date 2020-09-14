@@ -39,7 +39,6 @@ public class UsuarioController implements IController<Usuario> {
 	@Override
 	@PostMapping("/save")
 	public Usuario save(@RequestBody Usuario usuario) {
-		System.out.println(usuario);
 		return usuarioService.save(usuario);
 	}
 
