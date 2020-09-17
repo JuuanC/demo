@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.modelo.Coche;
 import com.example.demo.service.CocheService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/coche")
 public class CocheController implements IController<Coche> {
@@ -43,9 +45,11 @@ public class CocheController implements IController<Coche> {
 	}
 
 	@Override
-	@DeleteMapping("delete")
-	public void delete(@RequestBody Coche coche) {
-		cocheService.delete(coche);
+	@CrossOrigin
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Long id) {
+		Coche cocheTem = cocheService.getById(id);
+		cocheService.delete(cocheTem);
 	}
 
 }
