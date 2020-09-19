@@ -45,10 +45,17 @@ public class UsuarioController implements IController<Usuario> {
 	}
 
 	@Override
-	@DeleteMapping("delete")
+	@CrossOrigin
+	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") Long id) {
-		Usuario usuarioTem = usuarioService.getById(id);
-		usuarioService.delete(usuarioTem);
+		Usuario tem = usuarioService.getById(id);
+		usuarioService.delete(tem);
+	}
+
+	@Override
+	public Usuario update(Usuario t) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

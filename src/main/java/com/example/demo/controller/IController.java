@@ -5,4 +5,5 @@ public interface IController<T> {
     T getById(Long elementId);
     T save(T t);
     void delete(Long id);
+    T update(T t);
 }

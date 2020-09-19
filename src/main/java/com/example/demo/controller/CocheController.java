@@ -40,7 +40,6 @@ public class CocheController implements IController<Coche> {
 	@Override
 	@PostMapping("/save")
 	public Coche save(@RequestBody Coche coche) {
-		System.out.println(coche);
 		return cocheService.save(coche);
 	}
 
@@ -48,8 +47,14 @@ public class CocheController implements IController<Coche> {
 	@CrossOrigin
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") Long id) {
-		Coche cocheTem = cocheService.getById(id);
-		cocheService.delete(cocheTem);
+		Coche tem = cocheService.getById(id);
+		cocheService.delete(tem);
+	}
+
+	@Override
+	@PostMapping("/update")
+	public Coche update(Coche coche) {
+		return cocheService.update(coche);
 	}
 
 }

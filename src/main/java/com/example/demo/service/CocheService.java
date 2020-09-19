@@ -39,6 +39,10 @@ public class CocheService {
             return null;
         }
 	}
+	
+	public Coche update(Coche coche) {
+		return cocheRepositorio.save(coche);
+	}
 
 
 }
